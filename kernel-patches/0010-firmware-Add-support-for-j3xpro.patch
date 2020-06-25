@@ -1,0 +1,28 @@
+From 80a0a3069aa9144ebdfe2417317360584d9a610b Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 19:52:46 +0800
+Subject: [PATCH 10/25] firmware: Add support for j3xpro
+
+Change-Id: Idd05f55f229fce44fa4c2ba53757ee307f052ee5
+---
+ firmware/Makefile | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/firmware/Makefile b/firmware/Makefile
+index 42a728b7439..10c2156a354 100644
+--- a/firmware/Makefile
++++ b/firmware/Makefile
+@@ -180,6 +180,10 @@ ifdef CONFIG_SEC_J3_PROJECT
+ fw-shipped-$(CONFIG_TOUCHSCREEN_IST30XXC) += tsp_imagis/ist3038c_j3.fw
+ fw-shipped-$(CONFIG_TOUCHSCREEN_IST30XXC) += tsp_imagis/ist3038c_j3_cmcs.bin
+ endif
++ifdef CONFIG_SEC_J3XPRO_PROJECT
++fw-shipped-$(CONFIG_TOUCHSCREEN_IST30XXC) += tsp_imagis/ist3038c_j3.fw
++fw-shipped-$(CONFIG_TOUCHSCREEN_IST30XXC) += tsp_imagis/ist3038c_j3_cmcs.bin
++endif
+ ifdef CONFIG_SEC_J5X_PROJECT
+ fw-shipped-$(CONFIG_TOUCHSCREEN_IST30XXC_CMCS) += tsp_imagis/ist3038c_j5x.fw
+ fw-shipped-$(CONFIG_TOUCHSCREEN_IST30XXC_CMCS) += tsp_imagis/ist3038c_j5x_cmcs.bin
+-- 
+2.20.1
+

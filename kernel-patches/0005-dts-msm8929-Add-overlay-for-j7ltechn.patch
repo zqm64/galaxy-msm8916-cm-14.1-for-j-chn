@@ -1,0 +1,88 @@
+From 464153f3a9759839ec29c4f6a590190b8893a7f7 Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 19:24:03 +0800
+Subject: [PATCH 05/25] dts: msm8929: Add overlay for j7ltechn
+
+Change-Id: Ieb440341302d26521f3d48bd473eb27df4a069ba
+---
+ .../samsung/msm8929/msm8929-j7-chn-overlay.dtsi  | 16 ++++++++++++++++
+ .../samsung/msm8929/msm8929-sec-j7-chn-r00.dtsi  |  1 +
+ .../samsung/msm8929/msm8929-sec-j7-chn-r01.dtsi  |  1 +
+ .../samsung/msm8929/msm8929-sec-j7-chn-r02.dtsi  |  1 +
+ .../samsung/msm8929/msm8929-sec-j7-chn-r04.dtsi  |  1 +
+ 5 files changed, 20 insertions(+)
+ create mode 100644 arch/arm/boot/dts/samsung/msm8929/msm8929-j7-chn-overlay.dtsi
+
+diff --git a/arch/arm/boot/dts/samsung/msm8929/msm8929-j7-chn-overlay.dtsi b/arch/arm/boot/dts/samsung/msm8929/msm8929-j7-chn-overlay.dtsi
+new file mode 100644
+index 00000000000..3a7c3960908
+--- /dev/null
++++ b/arch/arm/boot/dts/samsung/msm8929/msm8929-j7-chn-overlay.dtsi
+@@ -0,0 +1,16 @@
++/ {
++	memory {
++		external_image_mem: external_image__region@0 {
++			reg = <0x0 0x85A00000 0x0 0x0E00000>;
++		};
++		cont_splash_mem: splash_region@83000000 {
++			reg = <0x0 0x83000000 0x0 0x2000000>;
++		};
++	};
++};
++&soc {
++	qcom_seecom: qseecom@86000000 {
++		reg = <0x85A00000 0x500000>;
++	};
++	/delete-node/ i2c@78b7000;
++};
+diff --git a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r00.dtsi b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r00.dtsi
+index 33e31320d63..e75a03dee0e 100755
+--- a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r00.dtsi
++++ b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r00.dtsi
+@@ -17,6 +17,7 @@
+ #include "msm8929-sec-j7-battery-r00.dtsi"
+ #include "msm8939-audio-internal_codec.dtsi"
+ #include "../../../../../../drivers/video/msm/mdss/samsung/S6D7AA0X62_BV050HDM/dsi_panel_S6D7AA0X62_BV050HDM_hd_5_5_video.dtsi"
++#include "msm8929-j7-chn-overlay.dtsi"
+ #include "msm8929-camera-sensor-cdp-j7-chn-r00.dtsi"
+ 
+ &pm8916_l17 {
+diff --git a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r01.dtsi b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r01.dtsi
+index 8b696416a6f..ec0b7b247b4 100755
+--- a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r01.dtsi
++++ b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r01.dtsi
+@@ -17,6 +17,7 @@
+ #include "msm8929-sec-j7-battery-r00.dtsi"
+ #include "msm8939-audio-internal_codec.dtsi"
+ #include "../../../../../../drivers/video/msm/mdss/samsung/S6D7AA0X62_BV050HDM/dsi_panel_S6D7AA0X62_BV050HDM_hd_5_5_video.dtsi"
++#include "msm8929-j7-chn-overlay.dtsi"
+ #include "msm8929-camera-sensor-cdp-j7-chn-r00.dtsi"
+ 
+ &pm8916_l17 {
+diff --git a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r02.dtsi b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r02.dtsi
+index f9bdbe96c02..eebd76a9fcf 100755
+--- a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r02.dtsi
++++ b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r02.dtsi
+@@ -17,6 +17,7 @@
+ #include "msm8929-sec-j7-battery-r00.dtsi"
+ #include "msm8939-audio-internal_codec.dtsi"
+ #include "../../../../../../drivers/video/msm/mdss/samsung/S6D7AA0X62_BV050HDM/dsi_panel_S6D7AA0X62_BV050HDM_hd_5_5_video.dtsi"
++#include "msm8929-j7-chn-overlay.dtsi"
+ #include "msm8929-camera-sensor-cdp-j7-chn-r00.dtsi"
+ 
+ &pm8916_l17 {
+diff --git a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r04.dtsi b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r04.dtsi
+index ae2f336191c..5ffa1aa2146 100755
+--- a/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r04.dtsi
++++ b/arch/arm/boot/dts/samsung/msm8929/msm8929-sec-j7-chn-r04.dtsi
+@@ -17,6 +17,7 @@
+ #include "msm8929-sec-j7-battery-r00.dtsi"
+ #include "msm8939-audio-internal_codec.dtsi"
+ #include "../../../../../../drivers/video/msm/mdss/samsung/S6D7AA0X62_BV050HDM/dsi_panel_S6D7AA0X62_BV050HDM_hd_5_5_video.dtsi"
++#include "msm8929-j7-chn-overlay.dtsi"
+ #include "msm8929-camera-sensor-cdp-j7-chn-r00.dtsi"
+ 
+ &pm8916_l17 {
+-- 
+2.20.1
+

@@ -1,0 +1,31 @@
+From 86d91c9823906e9e771a34cb5ffed5b375270eb7 Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 20:13:55 +0800
+Subject: [PATCH 14/25] msm: camera_v2_j3x: Add the missing S5K4H5YC entry
+
+Change-Id: I9a482fd1b05630176d647a6b02c8aa2a11a27f6c
+---
+ drivers/media/platform/msm/camera_v2_j3x/Kconfig | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/drivers/media/platform/msm/camera_v2_j3x/Kconfig b/drivers/media/platform/msm/camera_v2_j3x/Kconfig
+index 2bbae1e9599..3a0dbe1b28e 100755
+--- a/drivers/media/platform/msm/camera_v2_j3x/Kconfig
++++ b/drivers/media/platform/msm/camera_v2_j3x/Kconfig
+@@ -294,6 +294,13 @@ config S5K4H5YB
+ 		S.LSI. 8 MP Bayer Sensor with auto focus, uses
+ 		4 mipi lanes full resolution @30fps and
+ 
++config S5K4H5YC
++	bool "Sensor S5K4H5YC (BAYER 8M)"
++	depends on MSMB_CAMERA
++	---help---
++		S.LSI. 8 MP Bayer Sensor with auto focus, uses
++		4 mipi lanes full resolution @30fps and
++
+ config S5K3L2XX
+ 	bool "Sensor S5K3L2XX (BAYER 13M)"
+ 	depends on MSMB_CAMERA
+-- 
+2.20.1
+

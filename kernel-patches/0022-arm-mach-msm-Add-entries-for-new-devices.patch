@@ -1,0 +1,62 @@
+From 6f2b8796e6134cbb5006c6a7b021e7c811bea871 Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 19:04:49 +0800
+Subject: [PATCH 22/25] arm: mach-msm: Add entries for new devices
+
+Change-Id: I75d03bda9be138d8cb920ccbb5e641355d01be99
+---
+ arch/arm/mach-msm/Kconfig | 31 ++++++++++++++++++++++++++++++-
+ 1 file changed, 30 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-msm/Kconfig b/arch/arm/mach-msm/Kconfig
+index d4035993b76..45209dfe1d3 100644
+--- a/arch/arm/mach-msm/Kconfig
++++ b/arch/arm/mach-msm/Kconfig
+@@ -721,7 +721,28 @@ config MACH_J1XLTE_USA_TFNVZW
+ 	bool "Samsung J1XLTE USA TFNVZW"
+ 	help
+ 	  Support for Samsung J1XLTE USA TFNVZW device.
+-	  
++
++config SEC_J3XPRO_PROJECT
++	depends on ARCH_MSM8916
++	default n
++	bool "Samsung J3XPRO Project"
++	help
++	  Support for Samsung J3XPRO Project
++
++config MACH_J3XPROLTE_CHN_CTC
++	depends on SEC_J3XPRO_PROJECT
++	default n
++	bool "Samsung J3XPROLTE CHN CTC"
++	help
++	  Support for Samsung J3XPROLTE CHN CTC device.
++
++config MACH_J3XPROLTE_CHN_OPEN
++	depends on SEC_J3XPRO_PROJECT
++	default n
++	bool "Samsung J3XPROLTE CHN OPEN"
++	help
++	  Support for Samsung J3XPROLTE CHN OPEN device.
++
+ config SEC_J5X_PROJECT
+ 	depends on ARCH_MSM8916
+ 	default n
+@@ -736,6 +757,14 @@ config MACH_J5XLTE_EUR_OPEN
+ 	help
+ 	  Support for Samsung J5XLTE EUR OPEN device.
+ 
++config MACH_J5XLTE_CHN_CMCC
++	depends on SEC_J5X_PROJECT
++	default n
++	bool "Samsung J5XLTE CHN CMCC"
++	help
++	  Support for Samsung J5XLTE CHN CMCC device.
++
++
+ config MACH_J5XLTE_KOR_OPEN
+ 	depends on SEC_J5X_PROJECT
+ 	default n
+-- 
+2.20.1
+

@@ -1,0 +1,40 @@
+From 2245c2059f0a00bbba11614c68de372fddfa36f3 Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 20:22:31 +0800
+Subject: [PATCH 16/25] media: msm: Use camera_v2_j3x for j5xltecmcc
+
+Change-Id: I3e7144994005c0bae438e27472895e31b0be9b9b
+---
+ drivers/media/platform/msm/Kconfig  | 2 +-
+ drivers/media/platform/msm/Makefile | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/media/platform/msm/Kconfig b/drivers/media/platform/msm/Kconfig
+index b2e430296c5..e2edd8cbb16 100644
+--- a/drivers/media/platform/msm/Kconfig
++++ b/drivers/media/platform/msm/Kconfig
+@@ -48,7 +48,7 @@ if MACH_J7_CHN_CMCC
+ source "drivers/media/platform/msm/camera_v2_j5/Kconfig"
+ endif # MACH_J7_CHN_CMCC
+ endif # SEC_J7_PROJECT
+-if SEC_J3XPRO_PROJECT || SEC_J3_PROJECT
++if SEC_J3XPRO_PROJECT || SEC_J3_PROJECT || MACH_J5XLTE_CHN_CMCC
+ source "drivers/media/platform/msm/camera_v2_j3x/Kconfig"
+ endif # SEC_J3XPRO_PROJECT
+ 
+diff --git a/drivers/media/platform/msm/Makefile b/drivers/media/platform/msm/Makefile
+index 712de93ba29..d6234bfe4bb 100644
+--- a/drivers/media/platform/msm/Makefile
++++ b/drivers/media/platform/msm/Makefile
+@@ -19,6 +19,8 @@ obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j5/
+ else
+ obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j7lte/
+ endif
++else ifeq ($(CONFIG_MACH_J5XLTE_CHN_CMCC),y)
++obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j3x/
+ else ifeq ($(CONFIG_SEC_J3XPRO_PROJECT),y)
+ obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j3x/
+ else ifeq ($(CONFIG_SEC_J3_PROJECT),y)
+-- 
+2.20.1
+

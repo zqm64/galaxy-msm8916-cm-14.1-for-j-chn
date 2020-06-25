@@ -1,0 +1,26 @@
+From 73ffd82530b667d6ca32a2410d40ced509105a56 Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 19:53:29 +0800
+Subject: [PATCH 11/25] include: input: Add support for j3xpro
+
+Change-Id: I86999cd93bb80889bfdff9120bce1a6988e3a96d
+---
+ include/linux/input/tsp_ta_callback.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/linux/input/tsp_ta_callback.h b/include/linux/input/tsp_ta_callback.h
+index 6320606913e..69df85d59b3 100644
+--- a/include/linux/input/tsp_ta_callback.h
++++ b/include/linux/input/tsp_ta_callback.h
+@@ -28,7 +28,7 @@
+ #define USE_TSP_TA_CALLBACKS
+ #elif defined(CONFIG_SEC_O7_PROJECT) || defined(CONFIG_SEC_ON7N_PROJECT)
+ #define USE_TSP_TA_CALLBACKS
+-#elif defined(CONFIG_SEC_J3_PROJECT)
++#elif defined(CONFIG_SEC_J3_PROJECT) || defined(CONFIG_SEC_J3XPRO_PROJECT)
+ #define USE_TSP_TA_CALLBACKS
+ #elif defined(CONFIG_SEC_J5X_PROJECT)
+ #define USE_TSP_TA_CALLBACKS
+-- 
+2.20.1
+

@@ -1,0 +1,47 @@
+From 1a34e118cf0937f46c1e4ad37f9d725fb2ffcd45 Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Wed, 13 May 2020 19:50:31 +0800
+Subject: [PATCH 08/25] media: msm: Use camera_v2_j5 for j7ltechn
+
+Change-Id: Ic732ed91c13059bfcb12cc772ed7da8e2eadeb12
+---
+ drivers/media/platform/msm/Kconfig  | 5 +++++
+ drivers/media/platform/msm/Makefile | 4 ++++
+ 2 files changed, 9 insertions(+)
+
+diff --git a/drivers/media/platform/msm/Kconfig b/drivers/media/platform/msm/Kconfig
+index 83a7b93735e..477b0e7f9f1 100644
+--- a/drivers/media/platform/msm/Kconfig
++++ b/drivers/media/platform/msm/Kconfig
+@@ -41,7 +41,12 @@ if SEC_J5_PROJECT || SEC_J5N_PROJECT
+ source "drivers/media/platform/msm/camera_v2_j5/Kconfig"
+ endif # SEC_J5_PROJECT
+ if SEC_J7_PROJECT
++if !( MACH_J7_CHN_CMCC )
+ source "drivers/media/platform/msm/camera_v2_j7lte/Kconfig"
++endif # MACH_J7_CHN_CMCC
++if MACH_J7_CHN_CMCC
++source "drivers/media/platform/msm/camera_v2_j5/Kconfig"
++endif # MACH_J7_CHN_CMCC
+ endif # SEC_J7_PROJECT
+ 
+ if !(SEC_FORTUNA_PROJECT || SEC_J5_PROJECT || SEC_J5N_PROJECT || SEC_J7_PROJECT)
+diff --git a/drivers/media/platform/msm/Makefile b/drivers/media/platform/msm/Makefile
+index 5f4be1fd645..4ae8a428079 100644
+--- a/drivers/media/platform/msm/Makefile
++++ b/drivers/media/platform/msm/Makefile
+@@ -14,7 +14,11 @@ obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j5/
+ else ifeq ($(CONFIG_SEC_FORTUNA_PROJECT),y)
+ obj-$(CONFIG_MSMB_CAMERA) += camera_v2_fortuna/
+ else ifeq ($(CONFIG_SEC_J7_PROJECT),y)
++ifeq ($(CONFIG_MACH_J7_CHN_CMCC),y)
++obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j5/
++else
+ obj-$(CONFIG_MSMB_CAMERA) += camera_v2_j7lte/
++endif
+ else
+ obj-$(CONFIG_MSMB_CAMERA) += camera_v2/
+ endif
+-- 
+2.20.1
+

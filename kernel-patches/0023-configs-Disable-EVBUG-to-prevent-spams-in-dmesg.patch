@@ -1,0 +1,28 @@
+From 94b37ccfbd8323b80e652f5c31bd3b4c1015a52a Mon Sep 17 00:00:00 2001
+From: zqm64 <zqm64@outlook.com>
+Date: Tue, 16 Jun 2020 01:00:05 +0800
+Subject: [PATCH 23/25] configs: Disable EVBUG to prevent spams in dmesg
+
+It prints all touch events to dmesg
+
+Change-Id: I2234394e0013db661daa5a2d48ea75bb22978462
+---
+ arch/arm/configs/msm8916_sec_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/msm8916_sec_defconfig b/arch/arm/configs/msm8916_sec_defconfig
+index d83c60eb9e0..776e81eafeb 100644
+--- a/arch/arm/configs/msm8916_sec_defconfig
++++ b/arch/arm/configs/msm8916_sec_defconfig
+@@ -303,7 +303,7 @@ CONFIG_WLAN=y
+ CONFIG_WIRELESS_EXT=y
+ CONFIG_WEXT_PRIV=y
+ CONFIG_INPUT_EVDEV=y
+-CONFIG_INPUT_EVBUG=y
++# CONFIG_INPUT_EVBUG is not set
+ CONFIG_KEYBOARD_GPIO=y
+ CONFIG_INPUT_JOYSTICK=y
+ CONFIG_JOYSTICK_XPAD=y
+-- 
+2.20.1
+
