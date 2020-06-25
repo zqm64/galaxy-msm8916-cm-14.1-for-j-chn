@@ -16,5 +16,4 @@
 
 PRODUCT_COPY_FILES += \
     vendor/samsung/j7lte-common/proprietary/bin/msm_irqbalance:system/bin/msm_irqbalance \
-    vendor/samsung/j7lte-common/proprietary/vendor/lib/libmdsprpc.so:system/vendor/lib/libmdsprpc.so \
-    vendor/samsung/j7lte-common/proprietary/vendor/firmware/libpn548ad_fw.so:system/vendor/firmware/libpn548ad_fw.so
+    vendor/samsung/j7lte-common/proprietary/vendor/lib/libmdsprpc.so:system/vendor/lib/libmdsprpc.so

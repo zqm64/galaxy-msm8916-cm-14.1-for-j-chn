@@ -101,8 +101,7 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/j3xprolte/proprietary/etc/Headset_cal.acdb:system/etc/Headset_cal.acdb \
     vendor/samsung/j3xprolte/proprietary/etc/Speaker_cal.acdb:system/etc/Speaker_cal.acdb \
     vendor/samsung/j3xprolte/proprietary/lib/libsec-ril-dsds.so:system/lib/libsec-ril-dsds.so \
-    vendor/samsung/j3xprolte/proprietary/lib/libsec-ril.so:system/lib/libsec-ril.so \
-    vendor/samsung/j3xprolte/proprietary/vendor/firmware/libpn548ad_fw.so:system/vendor/firmware/libpn548ad_fw.so
+    vendor/samsung/j3xprolte/proprietary/lib/libsec-ril.so:system/lib/libsec-ril.so
 
 # Audio
 PRODUCT_COPY_FILES += \
